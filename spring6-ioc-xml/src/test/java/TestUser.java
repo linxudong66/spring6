@@ -10,7 +10,7 @@ public class TestUser {
         User user = (User) context.getBean("user");
         System.out.println("user-根据id获取Bean = " + user);
 
-        //根据类型获取Bean
+        //根据类型获取Bean,这个对象只能有一个类，单实例
         User user1 = context.getBean(User.class);
         System.out.println("user1-根据类型获取Bean = " + user1);
 
