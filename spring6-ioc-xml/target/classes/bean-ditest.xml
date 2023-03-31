@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--
+    外部bean
+        1、创建两个对象 ：dept 和 emp
+        2、在emp的bean标签里面，使用property引入的dept的bean
+    -->
+<!--    <bean id="dept" class="com.lxd.spring6.iocxml.ditest.Dept">-->
+<!--        <property name="dname" value="保安部"></property>-->
+<!--    </bean>-->
+<!--    <bean id="emp" class="com.lxd.spring6.iocxml.ditest.Emp">-->
+<!--        <property name="ename" value="lxd"></property>-->
+<!--        <property name="age" value="22"></property>-->
+
+<!--        &lt;!&ndash;引入对象bean~dept&ndash;&gt;-->
+<!--        <property name="dept" ref="dept"></property>-->
+<!--    </bean>-->
+
+    <!--
+    内部bean
+    -->
+<!--    <bean id="dept1" class="com.lxd.spring6.iocxml.ditest.Dept">-->
+<!--        <property name="dname" value="AAA"></property>-->
+<!--    </bean>-->
+<!--    <bean id="emp1" class="com.lxd.spring6.iocxml.ditest.Emp">-->
+<!--        <property name="ename" value="lSS"></property>-->
+<!--        <property name="age" value="34"></property>-->
+
+<!--        &lt;!&ndash;引入对象bean~dept1 __ 内部&ndash;&gt;-->
+<!--        <property name="dept">-->
+<!--            <bean id="dept1" class="com.lxd.spring6.iocxml.ditest.Dept">-->
+<!--                <property name="dname" value="AAA"></property>-->
+<!--            </bean>-->
+<!--        </property>-->
+<!--    </bean>-->
+    <!-- 第三种方式 级联复制-->
+    <bean id="dept2" class="com.lxd.spring6.iocxml.ditest.Dept">
+            <property name="dname" value="BBBB"></property>
+    </bean>
+    <bean id="emp2" class="com.lxd.spring6.iocxml.ditest.Emp">
+        <property name="ename" value="TOM"></property>
+        <property name="age" value="45"></property>
+        <property name="dept" ref="dept2"></property>
+        <property name="dept.dname" value="CCC"></property>
+    </bean>
+</beans>
